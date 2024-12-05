@@ -1,4 +1,8 @@
 import { defineConfig } from "tinacms";
+import database from "./database"
+
+import { UsernamePasswordAuthJSProvider } from 'tinacms-authjs/dist/tinacms'
+import { LocalAuthProvider } from 'tinacms'
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -9,12 +13,15 @@ const branch =
 
 export default defineConfig({
   branch,
+  authProvider:new UsernamePasswordAuthJSProvider(),
+  contentApiUrlOverride: '/api/tina/gql',
+  
+  
+    // Add the database setup here to inform TinaCMS of the storage
+    // You can add other TinaCMS configurations here, like schema, plugins, etc.
 
   // Get this from tina.io
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
-  // Get this from tina.io
-  token: process.env.TINA_TOKEN,
-
+  
   build: {
     outputFolder: "admin",
     publicFolder: "public",
