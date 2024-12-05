@@ -1,7 +1,7 @@
 import { defineConfig } from "tinacms";
-import database from "./database"
+// import database from "./database"
 
-import { UsernamePasswordAuthJSProvider } from 'tinacms-authjs/dist/tinacms'
+import { UsernamePasswordAuthJSProvider, TinaUserCollection } from 'tinacms-authjs/dist/tinacms'
 import { LocalAuthProvider } from 'tinacms'
 
 // Your hosting provider likely exposes this as an environment variable
@@ -35,6 +35,7 @@ export default defineConfig({
   // See docs on content modeling for more info on how to setup new content models: https://tina.io/docs/schema/
   schema: {
     collections: [
+      TinaUserCollection,
       {
         name: "post",
         label: "Posts",

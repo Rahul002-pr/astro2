@@ -8,7 +8,7 @@ import { Redis } from '@upstash/redis'
 import { RedisLevel } from 'upstash-redis-level'
 
 // Manage this flag in your CI/CD pipeline and make sure it is set to false in production
-const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'true'
+const isLocal = process.env.TINA_PUBLIC_IS_LOCAL === 'false'
 console.log('Running in local mode:', isLocal)
 
 const branch =
